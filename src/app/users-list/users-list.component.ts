@@ -16,6 +16,10 @@ export class UsersListComponent implements OnInit {
     this.myService = _myService;
   }
 
+  remove(){
+    console.log('removendo');
+  }
+
   ngOnInit(){
     this.myService.getUsers()
      .subscribe(

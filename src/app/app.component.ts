@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  titleTopBar = 'Users List - Angular2!';
+  titleTopBar = 'Users List';
 }

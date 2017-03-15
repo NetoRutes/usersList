@@ -1,23 +1,46 @@
 
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Age</th>
-    <th>City</th>
-  </tr>
-  <tr *ngFor="let user of users" >
-      <td>
-        {{user.id}}
-      </td>
-      <td>
-        {{user.name}}
-      </td>
-      <td>
-        {{user.age}}
-      </td>
-      <td>
-        {{user.city}}
-      </td>
-  </tr>
+<table class="highlight">
+  <thead class="center">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>City</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users" >
+        <td>
+          {{user.id}}
+        </td>
+        <td>
+          {{user.name}}
+        </td>
+        <td>
+          {{user.age}}
+        </td>
+        <td>
+          {{user.city}}
+        </td>
+        <td>
+          <a class="btn-floating btn-medium waves-effect waves-light red left"><i class="material-icons">delete</i>Delete</a>
+        </td>
+    </tr>
+  </tbody>
 </table>
+<!--
+<ul materialize="collapsible" class="collapsible" data-collapsible="accordion">
+  <li>
+    <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+    <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+  </li>
+</ul>-->
