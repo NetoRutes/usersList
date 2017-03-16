@@ -1,9 +1,22 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
+#/dist
 /tmp
 /out-tsc
+
+#src code
+/e2e
+/src
+.angular-cli.json
+.editorconfig
+karma.conf.js
+package.json
+tsconfig.json
+tslint.json
+README.md
+protractor.conf.js
+
 
 # dependencies
 /node_modules
