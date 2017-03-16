@@ -19,7 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.sass",
+        "styles.scss",
         "../node_modules/materialize-css/dist/css/materialize.css"
       ],
       "scripts": [
@@ -56,7 +56,7 @@
     }
   },
   "defaults": {
-    "styleExt": "sass",
+    "styleExt": "scss",
     "component": {
     }
   }
