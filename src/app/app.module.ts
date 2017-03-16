@@ -8,18 +8,20 @@ import { MaterializeModule } from 'angular2-materialize';
 import { AppComponent } from './app.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UsersListService } from './users-list/users-list.service';
+import { OrderByPipe } from './order-by.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UsersListComponent
+    UsersListComponent,
+    OrderByPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [UsersListService],
+  providers: [UsersListService, OrderByPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

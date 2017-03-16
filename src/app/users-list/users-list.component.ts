@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UsersListService } from './users-list.service';
+import { OrderByPipe } from './../order-by.pipe';
 
 @Component({
   selector: 'users-list',
@@ -9,15 +10,13 @@ import { UsersListService } from './users-list.service';
 })
 export class UsersListComponent implements OnInit {
 
-  public users; // = []; ?
+  public users;
   myService: UsersListService;
+  orderBy: OrderByPipe;
 
-  constructor(_myService: UsersListService) {
+  constructor(_myService: UsersListService, _orderBy: OrderByPipe) {
     this.myService = _myService;
-  }
-
-  remove(){
-    console.log('removendo');
+    this.orderBy = _orderBy;
   }
 
   ngOnInit(){
@@ -27,6 +26,10 @@ export class UsersListComponent implements OnInit {
        error => console.error("=> Erro = "+error),
        () => console.log('=> Finished')
      );
+  }
+
+  order(fieldToOrder){
+    this.users = this.orderBy.transform(this.users, fieldToOrder);
   }
 
 }

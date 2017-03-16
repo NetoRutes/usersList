@@ -26,12 +26,8 @@ table{
 }
 
 .card-content{
-  width:80%;
+  width:90%;
 }
-
-// .card-delete-btn{
-//   margin-top: 40px;
-// }
 
 .card-propertie{
   float: left;
@@ -50,3 +46,20 @@ table{
   }
 }
 
+a{
+  color: black;
+  cursor: pointer;
+}
+
+a:hover{
+  color: #ef9a9a;
+}
+
+.row{
+  margin-bottom: 0px;
+  margin-top: 3px;
+}
+
+.orderingBtns{
+  text-align: center;
+}

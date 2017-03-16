@@ -1,11 +1,23 @@
 
-<table class="highlight userList">
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <i class="material-icons prefix">search</i>
+        <input id="icon_prefix" type="text" class="validate">
+        <label for="icon_prefix">Search</label>
+      </div>
+    </div>
+  </form>
+</div>
+
+<table class="highlight userList table-sortable">
   <thead class="center">
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Age</th>
-      <th>City</th>
+      <th><a (click)="order('id')">ID</a></th>
+      <th><a (click)="order('name')">Name</a></th>
+      <th><a (click)="order('age')">Age</a></th>
+      <th><a (click)="order('city')">City</a></th>
       <th>Delete</th>
     </tr>
   </thead>
@@ -26,6 +38,13 @@
 </table>
 
 <div class="cards">
+  <div class="orderingBtns">
+    <a class="waves-effect btn white-text red lighten-3" (click)="order('id')">ID</a>
+    <a class="waves-effect btn white-text red lighten-3" (click)="order('name')">Name</a>
+    <a class="waves-effect btn white-text red lighten-3" (click)="order('age')">Age</a>
+    <a class="waves-effect btn white-text red lighten-3" (click)="order('city')">City</a>
+  </div>
+
   <div *ngFor="let user of users" class="row">
     <div  class="col s12 m12">
       <div class="card big pink lighten-5">
