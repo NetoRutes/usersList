@@ -1,4 +1,4 @@
-
+<!--search element-->
 <div class="row">
   <form class="col s12">
     <div class="row">
@@ -11,6 +11,7 @@
   </form>
 </div>
 
+<!--table-->
 <table class="highlight userList table-sortable">
   <thead class="center">
     <tr>
@@ -22,13 +23,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users" >
+    <tr *ngFor="let user of users">
         <td>{{user.id}}</td>
         <td>{{user.name}}</td>
         <td>{{user.age}}</td>
         <td>{{user.city}}</td>
         <td>
-          <a class="btn-floating btn-medium waves-effect waves-light red left">
+          <a class="btn-floating btn-medium waves-effect waves-light red left" (click)="openDeleteModal(user.name)">
             <i class="material-icons">delete</i>
             Delete
           </a>
@@ -37,6 +38,7 @@
   </tbody>
 </table>
 
+<!--cards-->
 <div class="cards">
   <div class="orderingBtns">
     <a class="waves-effect btn white-text red lighten-3" (click)="order('id')">ID</a>
@@ -54,9 +56,23 @@
         <div class="card-action">
           <span class="card-propertie"><strong>Age </strong>{{user.age}}</span>
           <span class="card-propertie"><strong>City </strong>{{user.city}}</span>
-          <a class="btn-floating btn-medium waves-effect waves-light red right"><i class="material-icons">delete</i></a>
+          <a class="btn-floating btn-medium waves-effect waves-light red right" (click)="openDeleteModal(user.name)"><i class="material-icons">delete</i></a>
         </div>
       </div>
     </div>
+  </div>
+</div>
+ 
+<!--delete modal-->
+<div id="modal1" class="modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
+  <div class="modal-content">
+    <h4>{{currentUserName}} is being removed...</h4>
+     <blockquote>
+      <p>Sorry. The feature of users deletion don't was implemented yet.</p>
+      <p>Please, look for the system administrator to know more about this.</p>
+     </blockquote>
+  </div>
+  <div class="modal-footer">
+    <a class="waves-effect waves-green btn-flat" (click)="closeDeleteModal()">Understood!</a>
   </div>
 </div>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
+
+import {MaterializeAction} from 'angular2-materialize';
 
 import { UsersListService } from './users-list.service';
 import { OrderByPipe } from './../order-by.pipe';
@@ -13,10 +15,13 @@ export class UsersListComponent implements OnInit {
   public users;
   myService: UsersListService;
   orderBy: OrderByPipe;
+  modalActions: EventEmitter<string|MaterializeAction>;
+  currentUserName: string = '';
 
   constructor(_myService: UsersListService, _orderBy: OrderByPipe) {
     this.myService = _myService;
     this.orderBy = _orderBy;
+    this.modalActions = new EventEmitter<string|MaterializeAction>();
   }
 
   ngOnInit(){
@@ -30,6 +35,15 @@ export class UsersListComponent implements OnInit {
 
   order(fieldToOrder){
     this.users = this.orderBy.transform(this.users, fieldToOrder);
+  }
+
+  openDeleteModal(currentUserNameToDelete) {
+    this.currentUserName = currentUserNameToDelete;
+    this.modalActions.emit({action:"modal",params:['open']});
+  }
+  closeDeleteModal() {
+    this.currentUserName = '';
+    this.modalActions.emit({action:"modal",params:['close']});
   }
 
 }

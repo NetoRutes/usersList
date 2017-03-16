@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { MaterializeModule } from 'angular2-materialize';
 
+
 import { AppComponent } from './app.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UsersListService } from './users-list/users-list.service';
@@ -19,7 +20,8 @@ import { OrderByPipe } from './order-by.pipe';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MaterializeModule
   ],
   providers: [UsersListService, OrderByPipe],
   bootstrap: [AppComponent]

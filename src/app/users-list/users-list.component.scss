@@ -19,6 +19,19 @@ table{
   @media screen and (max-width: $max-break){
     display:block
   }
+  
+  @media screen and (max-width: 382px){
+    .btn{
+      padding: 0 20px;
+    }
+  }
+
+  @media screen and (max-width: 284px){
+    .btn{
+      margin: 8px;
+    }
+  }
+
 }
 
 .card-title{
