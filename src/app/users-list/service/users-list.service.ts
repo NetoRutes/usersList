@@ -9,7 +9,7 @@ export class UsersListService {
   }
 
   getUsers(){
-     return this.http.get('http://demo5698684.mockable.io/users');
+     return this.http.get('https://demo5698684.mockable.io/users');
   }
 
 }

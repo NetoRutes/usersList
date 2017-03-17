@@ -2,8 +2,9 @@ import { Component, OnInit, EventEmitter } from '@angular/core';
 
 import {MaterializeAction} from 'angular2-materialize';
 
-import { UsersListService } from './users-list.service';
-import { OrderByPipe } from './../order-by.pipe';
+import { UsersListService } from './service/users-list.service';
+import { OrderByPipe } from './../pipes/order-by/order-by.pipe';
+import { FilterByPipe } from './../pipes/filter-by/filter-by.pipe';
 
 @Component({
   selector: 'users-list',
@@ -12,29 +13,37 @@ import { OrderByPipe } from './../order-by.pipe';
 })
 export class UsersListComponent implements OnInit {
 
-  public users;
+  filteredUsers: any[];
+  allUsers: any[];
   myService: UsersListService;
   orderBy: OrderByPipe;
+  filterBy: FilterByPipe;
   modalActions: EventEmitter<string|MaterializeAction>;
   currentUserName: string = '';
+  valueToFilter: string = '';
 
-  constructor(_myService: UsersListService, _orderBy: OrderByPipe) {
+  constructor(_myService: UsersListService, _orderBy: OrderByPipe, _filterBy: FilterByPipe) {
     this.myService = _myService;
     this.orderBy = _orderBy;
+    this.filterBy = _filterBy;
     this.modalActions = new EventEmitter<string|MaterializeAction>();
   }
 
   ngOnInit(){
     this.myService.getUsers()
      .subscribe(
-       data => this.users = data.json(),
+       data => this.allUsers = this.filteredUsers = data.json(),
        error => console.error("=> Erro = "+error),
        () => console.log('=> Finished')
      );
   }
 
   order(fieldToOrder){
-    this.users = this.orderBy.transform(this.users, fieldToOrder);
+    this.filteredUsers = this.orderBy.transform(this.filteredUsers, fieldToOrder);
+  }
+
+  filter(valueToFilter){
+    this.filteredUsers = this.filterBy.transform(this.allUsers, valueToFilter);
   }
 
   openDeleteModal(currentUserNameToDelete) {
