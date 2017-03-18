@@ -50,6 +50,7 @@ export class UsersListComponent implements OnInit {
     this.currentUserName = currentUserNameToDelete;
     this.modalActions.emit({action:"modal",params:['open']});
   }
+  
   closeDeleteModal() {
     this.currentUserName = '';
     this.modalActions.emit({action:"modal",params:['close']});

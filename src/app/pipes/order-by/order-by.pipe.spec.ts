@@ -1,3 +1,5 @@
+import { MockUsersListOrdered } from './../../mocks/users-list-ordered.mock';
+import { MockUsersList } from './../../mocks/users-list.service.mock';
 import { OrderByPipe } from './order-by.pipe';
 
 describe('OrderByPipe', () => {
@@ -5,4 +7,11 @@ describe('OrderByPipe', () => {
     const pipe = new OrderByPipe();
     expect(pipe).toBeTruthy();
   });
+
+  it('should order userList by column name',() => {
+    const pipe = new OrderByPipe();
+    let resultUserListOrdered = pipe.transform(MockUsersList,'name');
+    expect(resultUserListOrdered).toEqual(MockUsersListOrdered);
+  });
+  
 });
